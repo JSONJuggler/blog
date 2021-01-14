@@ -8,8 +8,14 @@ export const BLACK = '#000000';
 export const WHITE = '#ffffff';
 
 export const COLORS = {
-  primary: blueGrey[500],
-  secondary: deepPurple[500],
+  primary: {
+    light: blueGrey[100],
+    main: blueGrey[500],
+  },
+  secondary: {
+    light: blueGrey[100],
+    main: blueGrey[500],
+  },
   background: LIGHT_GRAY,
   black: BLACK,
   white: WHITE,
@@ -19,10 +25,12 @@ export const COLORS = {
 let lightTheme = createMuiTheme({
   palette: {
     primary: {
-      main: COLORS.primary,
+      main: COLORS.primary.main,
+      light: COLORS.primary.light,
     },
     secondary: {
-      main: COLORS.secondary,
+      main: COLORS.secondary.main,
+      light: COLORS.secondary.light,
     },
     type: 'light',
   },
@@ -31,10 +39,12 @@ let lightTheme = createMuiTheme({
 let darkTheme = createMuiTheme({
   palette: {
     primary: {
-      main: COLORS.primary,
+      main: COLORS.primary.main,
+      light: COLORS.primary.light,
     },
     secondary: {
-      main: COLORS.secondary,
+      main: COLORS.primary.main,
+      light: COLORS.primary.light,
     },
     type: 'dark',
   },
