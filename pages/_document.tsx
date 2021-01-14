@@ -1,10 +1,25 @@
 import { Children } from 'react';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
-import theme from '../theme';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import React from 'react';
+
+import { lightTheme, darkTheme } from '../theme';
 
 export default class MyDocument extends Document {
   render(): JSX.Element {
+    let theme;
+    if (process.browser) {
+      const themePreference = localStorage.getItem('theme');
+
+      if (themePreference === 'light') {
+        theme = lightTheme;
+      } else {
+        theme = darkTheme;
+      }
+    } else {
+      theme = darkTheme;
+    }
+
     return (
       <Html lang="en">
         <Head>

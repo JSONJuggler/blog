@@ -1,16 +1,22 @@
+import { blueGrey, deepPurple } from '@material-ui/core/colors';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import { red } from '@material-ui/core/colors';
 
-export const BLACK = '#ffffff';
+export const PASTEL_PURPLE = '#b19cd9';
+export const PASTEL_GRAY = '#cfcfc4';
+export const LIGHT_GRAY = '#f7f7f8';
+export const BLACK = '#000000';
+export const WHITE = '#ffffff';
 
 export const COLORS = {
-  primary: BLACK,
-  secondary: BLACK,
-  background: BLACK,
+  primary: blueGrey[500],
+  secondary: deepPurple[500],
+  background: LIGHT_GRAY,
+  black: BLACK,
+  white: WHITE,
 };
 
 // Create a theme instance.
-let theme = createMuiTheme({
+let lightTheme = createMuiTheme({
   palette: {
     primary: {
       main: COLORS.primary,
@@ -18,15 +24,23 @@ let theme = createMuiTheme({
     secondary: {
       main: COLORS.secondary,
     },
-    error: {
-      main: red.A400,
-    },
-    background: {
-      default: COLORS.background,
-    },
+    type: 'light',
   },
 });
 
-theme = responsiveFontSizes(theme);
+let darkTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: COLORS.primary,
+    },
+    secondary: {
+      main: COLORS.secondary,
+    },
+    type: 'dark',
+  },
+});
 
-export default theme;
+lightTheme = responsiveFontSizes(lightTheme);
+darkTheme = responsiveFontSizes(darkTheme);
+
+export { lightTheme, darkTheme };
