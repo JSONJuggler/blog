@@ -13,8 +13,8 @@ export const COLORS = {
     main: blueGrey[500],
   },
   secondary: {
-    light: blueGrey[100],
-    main: blueGrey[500],
+    light: deepPurple[100],
+    main: deepPurple[500],
   },
   background: LIGHT_GRAY,
   black: BLACK,
