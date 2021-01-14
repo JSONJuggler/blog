@@ -43,8 +43,8 @@ let darkTheme = createMuiTheme({
       light: COLORS.primary.light,
     },
     secondary: {
-      main: COLORS.primary.main,
-      light: COLORS.primary.light,
+      main: COLORS.secondary.main,
+      light: COLORS.secondary.light,
     },
     type: 'dark',
   },
