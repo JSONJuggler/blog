@@ -1,23 +1,18 @@
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import { COLORS } from '../../theme';
+import { Container, Typography } from '@material-ui/core';
 
-type LandingProps = {
-  test?: string;
-};
-
-const Landing = (props: LandingProps) => {
+const Landing: React.FC = () => {
   const classes = useStyles();
 
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const alignedContentOnPaper = clsx(classes.content, classes.paper);
 
   return (
-    <div className={classes.root}>
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        {'Landing page'}
-      </main>
-    </div>
+    <Container className={classes.root} component="main">
+      <div className={alignedContentOnPaper}>
+        <Typography color="textPrimary">Landing Page</Typography>
+      </div>
+    </Container>
   );
 };
 
@@ -26,21 +21,19 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     flexGrow: 1,
-    background: COLORS.primary,
+    width: '100%',
   },
   content: {
     alignSelf: 'center',
+    background: theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
   },
   paper: {
     padding: theme.spacing(2),
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
+    alignSelf: 'center',
   },
-  fixedHeight: {
-    height: 260,
-  },
-  appBarSpacer: theme.mixins.toolbar,
 }));
 
 export default Landing;
