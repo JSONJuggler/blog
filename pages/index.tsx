@@ -1,17 +1,20 @@
 import { makeStyles } from '@material-ui/core';
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
 
 import Landing from '../composedComponents/Landing';
+import { getAllPosts } from '../lib/api';
+import Post from '../types/post';
 
 type HomeProps = {
-  isDark: boolean;
+  allPosts: Array<Post>;
 };
 
-const Home: React.FC<HomeProps> = ({ isDark }) => {
+const Home: React.FC<HomeProps> = ({ allPosts }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <main className={classes.root}>
       <Head>
         <title>Beau Reescano | Blog</title>
         <meta
@@ -22,9 +25,17 @@ const Home: React.FC<HomeProps> = ({ isDark }) => {
         <meta name="google-site-verification" content="x0Muns5pK71I3AK6b3XmS8zvBwcMpuSodHaI4MJqr-A" />
       </Head>
       <div className={classes.appBarSpacer} />
-      <Landing />
-    </div>
+      <Landing posts={allPosts} />
+    </main>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const allPosts = getAllPosts(['slug', 'title', 'date', 'coverImage', 'author', 'excerpt']);
+
+  return {
+    props: { allPosts },
+  };
 };
 
 const useStyles = makeStyles((theme) => ({

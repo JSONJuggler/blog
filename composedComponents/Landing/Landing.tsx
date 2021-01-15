@@ -1,24 +1,23 @@
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
-const Landing: React.FC = () => {
+import MoreStories from './MoreStories';
+import Post from '../../types/post';
+
+type LandingProps = {
+  posts: Array<Post>;
+};
+
+const Landing: React.FC<LandingProps> = ({ posts }) => {
   const classes = useStyles();
-
-  const alignedPrimaryContentOnPaper = clsx(classes.primaryContent, classes.paper);
-  const alignedSecondaryContentOnPaper = clsx(classes.secondaryContent, classes.paper);
+  const heroPost = posts[0];
+  const morePosts = posts.slice(1);
 
   return (
-    <Container className={classes.root} component="main">
-      <div className={alignedPrimaryContentOnPaper}>
-        <Typography color="textPrimary">Landing Page</Typography>
-        <Typography color="textSecondary">Landing Page</Typography>
-      </div>
-      <div className={alignedSecondaryContentOnPaper}>
-        <Typography color="textPrimary">Landing Page</Typography>
-        <Typography color="textSecondary">Landing Page</Typography>
-      </div>
-    </Container>
+    <>
+      <section>{morePosts.length > 0 && <MoreStories posts={morePosts} />}</section>
+    </>
   );
 };
 
@@ -29,8 +28,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     width: '100%',
   },
-  primaryContent: {
+  content: {
     alignSelf: 'center',
+    width: '100%',
     background: theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
   },
   secondaryContent: {
