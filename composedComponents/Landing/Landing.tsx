@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 
+import HeroStory from './HeroStory';
 import MoreStories from './MoreStories';
 import Post from '../../types/post';
 
@@ -16,17 +17,26 @@ const Landing: React.FC<LandingProps> = ({ posts }) => {
 
   return (
     <>
+      <section className={classes.heroStory}>
+        {heroPost && (
+          <HeroStory
+            title={heroPost.title}
+            coverImage={heroPost.coverImage}
+            date={heroPost.date}
+            excerpt={heroPost.excerpt}
+            author={heroPost.author}
+            slug={heroPost.slug}
+          />
+        )}
+      </section>
       <section className={classes.moreStories}>{morePosts.length > 0 && <MoreStories posts={morePosts} />}</section>
     </>
   );
 };
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexGrow: 1,
-    width: '100%',
+  heroStory: {
+    padding: theme.spacing(2),
   },
   moreStories: {
     flexGrow: 1,
