@@ -13,7 +13,7 @@ type PostPreviewProps = {
   slug: string;
 };
 
-const PostPreview: React.FC<PostPreviewProps> = ({ title, coverImage, date, excerpt, author, slug }: Props) => {
+const PostPreview: React.FC<PostPreviewProps> = ({ title, coverImage, date, excerpt, author, slug }) => {
   const classes = useStyles();
 
   const contentOnPaper = clsx(classes.content, classes.paper);
