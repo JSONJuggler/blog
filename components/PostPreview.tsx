@@ -20,38 +20,30 @@ type PostPreviewProps = {
 const PostPreview: React.FC<PostPreviewProps> = ({ title, coverImage, date, excerpt, author, slug }) => {
   const classes = useStyles();
 
-  const contentOnPaper = clsx(classes.content, classes.paper);
-
   return (
     <>
       <CoverImage slug={slug} title={title} src={coverImage} />
-        <Typography color="textPrimary" variant="h4" gutterBottom>
-          <Link as={`/posts/${slug}`} href="/posts/[slug]">
-            <a className={classes.anchor}>{title}</a>
-          </Link>
-        </Typography>
-        <DateFormatter dateString={date} />
-        <Typography color="textSecondary" variant="body2" paragraph>
-          {excerpt}
-        </Typography>
-        <Avatar name={author.name} picture={author.picture} />
-      </div>
+      <Typography color="textPrimary" variant="h4" gutterBottom>
+        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+          <a className={classes.anchor}>{title}</a>
+        </Link>
+      </Typography>
+      <DateFormatter dateString={date} />
+      <Typography color="textSecondary" variant="body2" paragraph>
+        {excerpt}
+      </Typography>
+      <Avatar name={author.name} picture={author.picture} />
     </>
   );
 };
 
 const useStyles = makeStyles((theme) => ({
-  content: {
-    // alignSelf: 'center',
-    // width: '100%',
-    // backgroundColor: theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
-  },
-  paper: {
-    padding: theme.spacing(2),
-  },
   anchor: {
-    textDecoration: 'underline',
+    textDecoration: 'none',
     color: theme.palette.text.primary,
+    '&:hover': {
+      textDecoration: 'underline',
+    },
     '&:visited': {
       color: theme.palette.text.secondary,
     },
