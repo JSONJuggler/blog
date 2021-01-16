@@ -69,7 +69,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Navbar setIsDark={setIsDark} />
-        <div className={classes.appBarSpacer} />
         <Container className={classes.container} maxWidth="lg" disableGutters={true} component="main">
           <Component {...pageProps} isDark={isDark} />
         </Container>
@@ -92,7 +91,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     flexGrow: 1,
   },
-  appBarSpacer: theme.mixins.toolbar,
 }));
 
 export default MyApp;
