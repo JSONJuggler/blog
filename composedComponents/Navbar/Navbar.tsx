@@ -15,7 +15,7 @@ const Navbar: React.FC<NavBarProps> = ({ setIsDark }) => {
   const classes = useStyles();
 
   return (
-    <AppBar color="transparent" elevation={0} position="fixed">
+    <AppBar color="transparent" elevation={0} position="absolute">
       <Container component="nav" maxWidth="lg" disableGutters={true}>
         <Toolbar>
           <Grid container spacing={2} justify="space-around" alignItems="center">
