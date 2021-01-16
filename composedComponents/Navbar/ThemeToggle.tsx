@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import Grid from '@material-ui/core/Grid';
 import Switch from '@material-ui/core/Switch';
@@ -10,7 +10,6 @@ type ThemeToggleProps = {
 };
 
 const ThemeToggle: React.FC<ThemeToggleProps> = ({ setIsDark }) => {
-  const classes = useStyles();
   const [state, setState] = useState(() => {
     if (process.browser) {
       const themePreference = localStorage.getItem('themePreference');
@@ -36,7 +35,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ setIsDark }) => {
   };
 
   return (
-    <FormGroup className={classes.root}>
+    <FormGroup>
       <Grid component="label" container alignItems="center" spacing={1}>
         <Grid item>
           <Typography variant="h6">dark</Typography>
@@ -51,10 +50,6 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ setIsDark }) => {
     </FormGroup>
   );
 };
-
-const useStyles = makeStyles(() => ({
-  root: {},
-}));
 
 const StyledSwitch = withStyles((theme) => ({
   root: {
