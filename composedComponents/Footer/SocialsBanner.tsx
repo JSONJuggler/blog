@@ -1,7 +1,6 @@
 import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
-import { Fragment } from 'react';
 
 import { SvgTwitter, SvgGithub, SvgLinkedin } from '../../icons';
 
@@ -24,7 +23,7 @@ const Link: React.FC<LinkProps> = ({ children, href }) => {
 
 const Socials: React.FC = () => {
   return (
-    <Fragment>
+    <>
       <Grid item>
         <Link href="https://github.com/jsonjuggler">
           <Tooltip title="My Github">
@@ -52,7 +51,7 @@ const Socials: React.FC = () => {
           </Tooltip>
         </Link>
       </Grid>
-    </Fragment>
+    </>
   );
 };
 

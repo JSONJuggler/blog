@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',

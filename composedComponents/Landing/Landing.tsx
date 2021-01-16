@@ -16,7 +16,7 @@ const Landing: React.FC<LandingProps> = ({ posts }) => {
 
   return (
     <>
-      <section>{morePosts.length > 0 && <MoreStories posts={morePosts} />}</section>
+      <section className={classes.moreStories}>{morePosts.length > 0 && <MoreStories posts={morePosts} />}</section>
     </>
   );
 };
@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     width: '100%',
   },
+  moreStories: {
+    flexGrow: 1,
+  },
   content: {
     alignSelf: 'center',
     width: '100%',
@@ -38,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.type === 'dark' ? theme.palette.secondary.dark : theme.palette.secondary.light,
   },
   paper: {
-    padding: theme.spacing(2),
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
