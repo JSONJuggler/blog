@@ -87,10 +87,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   container: {
+    padding: theme.spacing(2),
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    background: 'red',
   },
   appBarSpacer: theme.mixins.toolbar,
 }));
