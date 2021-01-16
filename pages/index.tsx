@@ -24,7 +24,6 @@ const Home: React.FC<HomeProps> = ({ allPosts }) => {
         />
         <meta name="google-site-verification" content="x0Muns5pK71I3AK6b3XmS8zvBwcMpuSodHaI4MJqr-A" />
       </Head>
-      <div className={classes.appBarSpacer} />
       <Landing posts={allPosts} />
     </main>
   );

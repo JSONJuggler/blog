@@ -3,6 +3,7 @@ import { ThemeProvider, makeStyles, Theme } from '@material-ui/core/styles';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import { Container } from '@material-ui/core';
 
 import Navbar from '../composedComponents/Navbar';
 import Footer from '../composedComponents/Footer';
@@ -68,20 +69,30 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Navbar setIsDark={setIsDark} />
-        <Component {...pageProps} isDark={isDark} />
+        <div className={classes.appBarSpacer} />
+        <Container className={classes.container} maxWidth="lg" disableGutters={true}>
+          <Component {...pageProps} isDark={isDark} />
+        </Container>
         <Footer />
       </div>
     </ThemeProvider>
   );
 };
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    background: 'red',
+  },
+  appBarSpacer: theme.mixins.toolbar,
 }));
 
 export default MyApp;
