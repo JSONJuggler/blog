@@ -109,9 +109,6 @@ const useStyles = makeStyles((theme) => ({
   anchor: {
     textDecoration: 'none',
     color: theme.palette.text.primary,
-    '&:hover': {
-      textDecoration: 'underline',
-    },
   },
 }));
 
