@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 
+import PostPreview from '../PostPreview';
 import Post from '../../types/post';
 
 type MoreStoriesProps = {
@@ -20,9 +21,16 @@ const MoreStories: React.FC<MoreStoriesProps> = ({ posts }) => {
           More Stories
         </Typography>
         {posts.map((post) => (
-          <Typography className={classes.postsItem} color="textSecondary" key={post.slug}>
-            {post.title}
-          </Typography>
+          <div className={classes.postsItem} key={post.slug}>
+            <PostPreview
+              title={post.title}
+              coverImage={post.coverImage}
+              date={post.date}
+              excerpt={post.excerpt}
+              author={post.author}
+              slug={post.slug}
+            />
+          </div>
         ))}
       </div>
     </>
@@ -44,23 +52,17 @@ const useStyles = makeStyles((theme) => ({
   },
   postsItem: {
     '&:first-of-type:before': {
-      backgroundColor: theme.palette.type === 'dark' ? theme.palette.secondary.dark : theme.palette.secondary.light,
-      borderRadius: '30px',
+      backgroundColor: theme.palette.type === 'dark' ? theme.palette.text.secondary : theme.palette.text.secondary,
       content: '""',
       display: 'block',
-      height: '5px',
+      height: '2px',
     },
     '&:after': {
-      backgroundColor: theme.palette.type === 'dark' ? theme.palette.secondary.dark : theme.palette.secondary.light,
-      borderRadius: '30px',
+      backgroundColor: theme.palette.type === 'dark' ? theme.palette.text.secondary : theme.palette.text.secondary,
       content: '""',
       display: 'block',
-      height: '5px',
+      height: '2px',
     },
-  },
-  postsList: {
-    display: 'flex',
-    flexDirection: 'column',
   },
 }));
 
