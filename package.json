@@ -25,6 +25,7 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "axios": "^0.21.0",
     "gray-matter": "^4.0.2",
+    "moment": "^2.29.1",
     "next": "10.0.2",
     "next-connect": "^0.9.1",
     "react": "17.0.1",
