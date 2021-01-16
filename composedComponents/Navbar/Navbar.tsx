@@ -15,7 +15,7 @@ const Navbar: React.FC<NavBarProps> = ({ setIsDark }) => {
     <AppBar color="transparent" elevation={0} position="static">
       <Container component="nav" maxWidth="lg" disableGutters={true}>
         <Toolbar>
-          <Grid container justify="space-around" alignItems="center">
+          <Grid container alignItems="center">
             <Grid item xs={true}></Grid>
             <Grid item>
               <ThemeToggle setIsDark={setIsDark} />

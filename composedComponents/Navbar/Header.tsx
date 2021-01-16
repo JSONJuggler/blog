@@ -29,28 +29,14 @@ const Header: React.FC = () => {
         {isLandingPage && (
           <>
             <Grid item xs={12} md="auto">
-              <Typography
-                className={classes.title}
-                align="center"
-                color="textPrimary"
-                variant="h1"
-                component="h1"
-                gutterBottom
-              >
+              <Typography className={classes.title} align="center" color="textPrimary" variant="h1" component="h1">
                 <Link as="/" href="/">
                   <a className={classes.anchor}>{"beau's blog"}</a>
                 </Link>
               </Typography>
             </Grid>
             <Grid item xs={true}>
-              <Typography
-                className={classes.subTitle}
-                align="right"
-                color="textPrimary"
-                variant="h4"
-                component="p"
-                gutterBottom
-              >
+              <Typography className={classes.subTitle} align="right" color="textPrimary" variant="h4" component="p">
                 {'welcome to my piece of the web!'}
               </Typography>
               <Typography
@@ -59,7 +45,6 @@ const Header: React.FC = () => {
                 color="textPrimary"
                 variant="h4"
                 component="p"
-                gutterBottom
               >
                 {'welcome to my piece of the web!'}
               </Typography>
@@ -69,14 +54,7 @@ const Header: React.FC = () => {
         {!isLandingPage && (
           <>
             <Grid item xs={12} md="auto">
-              <Typography
-                className={classes.title}
-                align="center"
-                color="textPrimary"
-                variant="h5"
-                component="h1"
-                gutterBottom
-              >
+              <Typography className={classes.title} align="center" color="textPrimary" variant="h5" component="h1">
                 <Link as="/" href="/">
                   <a className={classes.anchor}>{"beau's blog"}</a>
                 </Link>
