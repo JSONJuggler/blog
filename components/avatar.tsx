@@ -1,15 +1,38 @@
-type Props = {
+import Image from 'next/image';
+import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
+
+type AvatarProps = {
   name: string;
   picture: string;
 };
 
-const Avatar = ({ name, picture }: Props) => {
+const Avatar: React.FC<AvatarProps> = ({ name, picture }) => {
+  const classes = useStyles();
+
   return (
-    <div className="flex items-center">
-      <img src={picture} className="w-12 h-12 rounded-full mr-4" alt={name} />
-      <div className="text-xl font-bold">{name}</div>
+    <div className={classes.root}>
+      <Image className={classes.image} src={picture} height={100} width={100} alt={name} />
+      <Typography className={classes.name} variant="body2">
+        {name}
+      </Typography>
     </div>
   );
 };
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  image: {
+    borderRadius: '50px',
+  },
+  name: {
+    fontWeight: 'bold',
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+  },
+}));
 
 export default Avatar;
