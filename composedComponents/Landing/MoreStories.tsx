@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 
-import PostPreview from '../PostPreview';
+import PostPreview from '../../components/PostPreview';
 import Post from '../../types/post';
 
 type MoreStoriesProps = {
