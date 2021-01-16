@@ -12,7 +12,7 @@ const Avatar: React.FC<AvatarProps> = ({ name, picture }) => {
 
   return (
     <div className={classes.root}>
-      <Image className={classes.image} src={picture} height={100} width={100} alt={name} />
+      <Image className={classes.image} src={picture} height={50} width={50} alt={name} />
       <Typography className={classes.name} variant="body2">
         {name}
       </Typography>
