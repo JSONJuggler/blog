@@ -24,8 +24,7 @@ const PostPreview: React.FC<PostPreviewProps> = ({ title, coverImage, date, exce
 
   return (
     <>
-      <div className={contentOnPaper}>
-        {/* <CoverImage slug={slug} title={title} src={coverImage} /> */}
+      <CoverImage slug={slug} title={title} src={coverImage} />
         <Typography color="textPrimary" variant="h4" gutterBottom>
           <Link as={`/posts/${slug}`} href="/posts/[slug]">
             <a className={classes.anchor}>{title}</a>
