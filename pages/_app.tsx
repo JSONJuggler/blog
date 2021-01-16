@@ -89,6 +89,8 @@ const useStyles = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(2),
     display: 'flex',
+    flexDirection: 'column',
+    flexGrow: 1,
   },
   appBarSpacer: theme.mixins.toolbar,
 }));
