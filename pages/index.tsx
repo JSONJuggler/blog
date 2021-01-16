@@ -1,4 +1,3 @@
-import { makeStyles } from '@material-ui/core';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 
@@ -11,10 +10,8 @@ type HomeProps = {
 };
 
 const Home: React.FC<HomeProps> = ({ allPosts }) => {
-  const classes = useStyles();
-
   return (
-    <main className={classes.root}>
+    <>
       <Head>
         <title>Beau Reescano | Blog</title>
         <meta
@@ -25,7 +22,7 @@ const Home: React.FC<HomeProps> = ({ allPosts }) => {
         <meta name="google-site-verification" content="x0Muns5pK71I3AK6b3XmS8zvBwcMpuSodHaI4MJqr-A" />
       </Head>
       <Landing posts={allPosts} />
-    </main>
+    </>
   );
 };
 
@@ -36,15 +33,5 @@ export const getStaticProps: GetStaticProps = async () => {
     props: { allPosts },
   };
 };
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexGrow: 1,
-    width: '100%',
-  },
-  appBarSpacer: theme.mixins.toolbar,
-}));
 
 export default Home;

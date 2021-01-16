@@ -70,7 +70,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <CssBaseline />
         <Navbar setIsDark={setIsDark} />
         <div className={classes.appBarSpacer} />
-        <Container className={classes.container} maxWidth="lg" disableGutters={true}>
+        <Container className={classes.container} maxWidth="lg" disableGutters={true} component="main">
           <Component {...pageProps} isDark={isDark} />
         </Container>
         <Footer />
