@@ -1,6 +1,4 @@
-import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
 
 import HeroStory from './HeroStory';
 import MoreStories from './MoreStories';
@@ -40,21 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
   moreStories: {
     flexGrow: 1,
-  },
-  content: {
-    alignSelf: 'center',
-    width: '100%',
-    background: theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
-  },
-  secondaryContent: {
-    alignSelf: 'center',
-    background: theme.palette.type === 'dark' ? theme.palette.secondary.dark : theme.palette.secondary.light,
-  },
-  paper: {
-    display: 'flex',
-    overflow: 'auto',
-    flexDirection: 'column',
-    alignSelf: 'center',
+    padding: theme.spacing(2),
   },
 }));
 

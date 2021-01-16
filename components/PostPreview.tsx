@@ -22,7 +22,7 @@ const PostPreview: React.FC<PostPreviewProps> = ({ title, coverImage, date, exce
   return (
     <>
       <CoverImage slug={slug} title={title} src={coverImage} />
-      <Typography color="textPrimary" variant="h4" gutterBottom>
+      <Typography color="textPrimary" variant="h5" gutterBottom>
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a className={classes.anchor}>{title}</a>
         </Link>

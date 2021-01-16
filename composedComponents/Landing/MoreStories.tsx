@@ -13,7 +13,7 @@ const MoreStories: React.FC<MoreStoriesProps> = ({ posts }) => {
 
   return (
     <>
-      <Typography color="textPrimary" component="h2" variant="h1">
+      <Typography className={classes.sectionTitle} color="textPrimary" component="h2" variant="h2">
         {'More Stories'}
       </Typography>
       <Grid container spacing={4}>
@@ -35,6 +35,9 @@ const MoreStories: React.FC<MoreStoriesProps> = ({ posts }) => {
 };
 
 const useStyles = makeStyles((theme) => ({
+  sectionTitle: {
+    fontWeight: 'bold',
+  },
   postsItem: {
     marginTop: theme.spacing(2),
   },
