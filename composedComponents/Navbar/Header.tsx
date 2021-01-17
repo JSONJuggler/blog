@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 
+import Socials from './Socials';
+
 const Header: React.FC = () => {
   const classes = useStyles();
   const { asPath, route } = useRouter();
@@ -48,6 +50,12 @@ const Header: React.FC = () => {
               >
                 {'welcome to my piece of the web!'}
               </Typography>
+              <div className={classes.centeredSocials}>
+                <Socials isCentered={true} isLandingPage={isLandingPage} />
+              </div>
+              <div className={classes.socials}>
+                <Socials isCentered={false} isLandingPage={isLandingPage} />
+              </div>
             </Grid>
           </>
         )}
@@ -60,6 +68,14 @@ const Header: React.FC = () => {
                 </Link>
               </Typography>
             </Grid>
+            <Grid item xs={true}>
+              <div className={classes.centeredSocials}>
+                <Socials isCentered={true} isLandingPage={isLandingPage} />
+              </div>
+              <div className={classes.socials}>
+                <Socials isCentered={false} isLandingPage={isLandingPage} />
+              </div>
+            </Grid>
           </>
         )}
       </Grid>
@@ -70,6 +86,7 @@ const Header: React.FC = () => {
 const useStyles = makeStyles((theme) => ({
   title: {
     fontWeight: 'bold',
+    marginBottom: theme.spacing(2),
   },
   subTitle: {
     fontWeight: 'lighter',
@@ -79,7 +96,17 @@ const useStyles = makeStyles((theme) => ({
   },
   centeredSubTitle: {
     fontWeight: 'lighter',
-    display: 'block',
+    marginBottom: theme.spacing(2),
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
+  socials: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  },
+  centeredSocials: {
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
