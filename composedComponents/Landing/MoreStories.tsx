@@ -18,7 +18,7 @@ const MoreStories: React.FC<MoreStoriesProps> = ({ posts }) => {
       </Typography>
       <Grid container spacing={4}>
         {posts.map((post) => (
-          <Grid xs={12} sm={6} md={4} item className={classes.postsItem} key={post.slug}>
+          <Grid xs={12} sm={6} item className={classes.postsItem} key={post.slug}>
             <PostPreview
               title={post.title}
               coverImage={post.coverImage}
