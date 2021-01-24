@@ -55,8 +55,7 @@ const Navbar: React.FC<NavBarProps> = ({ setIsDark }) => {
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    paddingLeft: theme.spacing(1),
-    paddingRight: theme.spacing(1),
+    padding: theme.spacing(1),
   },
 }));
 
