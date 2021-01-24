@@ -4,18 +4,39 @@ import { Typography } from '@material-ui/core';
 
 type AvatarProps = {
   name: string;
-  picture: string;
+  picture?: string;
+  dateString?: string;
+  timeToRead?: number;
 };
 
-const Avatar: React.FC<AvatarProps> = ({ name, picture }) => {
+const Avatar: React.FC<AvatarProps> = ({ name, picture, dateString, timeToRead }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Image className={classes.image} src={picture} height={50} width={50} alt={name} />
-      <Typography className={classes.name} variant="body2">
-        {name}
-      </Typography>
+      {dateString && timeToRead && (
+        <>
+          {picture && <Image className={classes.image} src={picture} height={50} width={50} alt={name} />}
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Typography className={classes.name} variant="body2">
+              {name}
+            </Typography>
+            <div>
+              <Typography className={classes.name} color="textSecondary" variant="body2">
+                {timeToRead} min read
+              </Typography>
+            </div>
+          </div>
+        </>
+      )}
+      {!dateString && (
+        <>
+          {picture && <Image className={classes.image} src={picture} height={50} width={50} alt={name} />}
+          <Typography className={classes.name} variant="body2">
+            {name}
+          </Typography>
+        </>
+      )}
     </div>
   );
 };
