@@ -1,43 +1,14 @@
-import { makeStyles } from '@material-ui/core/styles';
 import { Grid, IconButton, Tooltip } from '@material-ui/core';
 
 import { SvgInstagram, SvgYoutube, SvgTwitch, SvgTwitter, SvgGithub, SvgLinkedin } from '../../icons';
 
 type SocialProps = {
-  isCentered: boolean;
   isLandingPage: boolean;
 };
 
-const Socials: React.FC<SocialProps> = ({ isCentered, isLandingPage }) => {
-  const classes = useStyles();
-
-  return (
-    <>
-      {isCentered && (
-        <Grid container className={classes.container} justify="center">
-          {renderSocials(isLandingPage)}
-        </Grid>
-      )}
-      {!isCentered && (
-        <Grid container className={classes.container} justify="flex-end">
-          {renderSocials(isLandingPage)}
-        </Grid>
-      )}
-    </>
-  );
+const Socials: React.FC<SocialProps> = ({ isLandingPage }) => {
+  return <>{renderSocials(isLandingPage)}</>;
 };
-
-const useStyles = makeStyles((theme) => ({
-  sectionTitle: {
-    fontWeight: 'bold',
-  },
-  container: {
-    marginTop: theme.spacing(2),
-    [theme.breakpoints.down('sm')]: {
-      marginTop: theme.spacing(0),
-    },
-  },
-}));
 
 const renderSocials = (isLandingPage: boolean) => {
   const getIcon = (iconName) => {
@@ -61,41 +32,41 @@ const renderSocials = (isLandingPage: boolean) => {
 
   const socials = [
     {
-      link: 'https://twitter.com/JSONJuggler',
-      toolTipLabel: 'My Twitter',
-      ariaLabel: 'twitter',
-      icon: getIcon('SvgTwitter'),
+      link: 'https://www.linkedin.com/in/beau-reescano/',
+      toolTipLabel: 'My LinkedIn',
+      ariaLabel: "beau's linkedin",
+      icon: getIcon('SvgLinkedIn'),
     },
     {
       link: 'https://github.com/jsonjuggler',
       toolTipLabel: 'My Github',
-      ariaLabel: 'github',
+      ariaLabel: "beau's github",
       icon: getIcon('SvgGithub'),
     },
     {
-      link: 'https://www.linkedin.com/in/beau-reescano/',
-      toolTipLabel: 'My LinkedIn',
-      ariaLabel: 'linkedin',
-      icon: getIcon('SvgLinkedIn'),
+      link: 'https://twitter.com/JSONJuggler',
+      toolTipLabel: 'My Twitter',
+      ariaLabel: "beau's twitter",
+      icon: getIcon('SvgTwitter'),
     },
     {
       link: 'https://www.instagram.com/beaureescano/',
       toolTipLabel: 'My Instagram',
-      ariaLabel: 'instagram',
+      ariaLabel: "beau's instagram",
       icon: getIcon('SvgInstagram'),
     },
-    {
-      link: 'https://www.twitch.tv/drees1992',
-      toolTipLabel: 'My Twitch',
-      ariaLabel: 'twitch',
-      icon: getIcon('SvgTwitch'),
-    },
-    {
-      link: 'https://www.youtube.com/channel/UCynL77MXCa27fwYCsDDmKSw',
-      toolTipLabel: 'My Youtube',
-      ariaLabel: 'youtube',
-      icon: getIcon('SvgYoutube'),
-    },
+    // {
+    //   link: 'https://www.twitch.tv/drees1992',
+    //   toolTipLabel: 'My Twitch',
+    //   ariaLabel: "beau's twitch",
+    //   icon: getIcon('SvgTwitch'),
+    // },
+    // {
+    //   link: 'https://www.youtube.com/channel/UCynL77MXCa27fwYCsDDmKSw',
+    //   toolTipLabel: 'My Youtube',
+    //   ariaLabel: "beau's youtube",
+    //   icon: getIcon('SvgYoutube'),
+    // },
   ];
 
   return socials.map((social) => (
