@@ -17,18 +17,19 @@ const Landing: React.FC<LandingProps> = ({ posts }) => {
   return (
     <>
       <Grid container>
-        <Grid item md={12}>
-          <section className={classes.heroStory}>
+        <Grid container item xs={12}>
+          <Grid item xs={12}>
+            <section className={classes.heroStory}>
               {heroPost && heroPost.coverImage && (
-              <HeroStory
-                title={heroPost.title}
-                coverImage={heroPost.coverImage}
-                date={heroPost.date}
-                excerpt={heroPost.excerpt}
-                author={heroPost.author}
-                slug={heroPost.slug}
-              />
-            )}
+                <HeroStory
+                  title={heroPost.title}
+                  coverImage={heroPost.coverImage}
+                  date={heroPost.date}
+                  excerpt={heroPost.excerpt}
+                  author={heroPost.author}
+                  slug={heroPost.slug}
+                />
+              )}
               {heroPost && !heroPost.coverImage && (
                 <HeroStory
                   title={heroPost.title}
@@ -38,10 +39,13 @@ const Landing: React.FC<LandingProps> = ({ posts }) => {
                   slug={heroPost.slug}
                 />
               )}
-          </section>
-        </Grid>
-        <Grid item sm={12}>
-          <section className={classes.moreStories}>{morePosts.length > 0 && <MoreStories posts={morePosts} />}</section>
+            </section>
+          </Grid>
+          <Grid item xs={12}>
+            <section className={classes.moreStories}>
+              {morePosts.length > 0 && <MoreStories posts={morePosts.slice(0, 2)} />}
+            </section>
+          </Grid>
         </Grid>
       </Grid>
     </>
@@ -54,9 +58,6 @@ const useStyles = makeStyles((theme) => ({
   },
   moreStories: {
     flexGrow: 1,
-    padding: theme.spacing(2),
-  },
-  socials: {
     padding: theme.spacing(2),
   },
 }));
