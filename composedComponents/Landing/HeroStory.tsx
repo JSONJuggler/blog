@@ -9,7 +9,7 @@ import Author from '../../types/author';
 
 type HeroStoryProps = {
   title: string;
-  coverImage: string;
+  coverImage?: string;
   date: string;
   excerpt: string;
   author: Author;
@@ -22,10 +22,12 @@ const HeroStory: React.FC<HeroStoryProps> = ({ title, coverImage, date, excerpt,
   return (
     <>
       <Grid container spacing={4}>
-        <Grid item xs={12}>
-          <CoverImage title={title} src={coverImage} slug={slug} />
-        </Grid>
-        <Grid item sm={6}>
+        {coverImage && (
+          <Grid item xs={12}>
+            <CoverImage title={title} src={coverImage} slug={slug} />
+          </Grid>
+        )}
+        <Grid item sm={12}>
           <Typography color="textPrimary" component="h2" variant="h3" gutterBottom>
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
               <a className={classes.anchor}>{title}</a>
@@ -33,7 +35,7 @@ const HeroStory: React.FC<HeroStoryProps> = ({ title, coverImage, date, excerpt,
           </Typography>
           <DateFormatter dateString={date} />
         </Grid>
-        <Grid item sm={6}>
+        <Grid item sm={12}>
           <Typography color="textSecondary" variant="body1" paragraph>
             {excerpt}
           </Typography>

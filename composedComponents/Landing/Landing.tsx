@@ -19,7 +19,7 @@ const Landing: React.FC<LandingProps> = ({ posts }) => {
       <Grid container>
         <Grid item md={12}>
           <section className={classes.heroStory}>
-            {heroPost && (
+              {heroPost && heroPost.coverImage && (
               <HeroStory
                 title={heroPost.title}
                 coverImage={heroPost.coverImage}
@@ -29,6 +29,15 @@ const Landing: React.FC<LandingProps> = ({ posts }) => {
                 slug={heroPost.slug}
               />
             )}
+              {heroPost && !heroPost.coverImage && (
+                <HeroStory
+                  title={heroPost.title}
+                  date={heroPost.date}
+                  excerpt={heroPost.excerpt}
+                  author={heroPost.author}
+                  slug={heroPost.slug}
+                />
+              )}
           </section>
         </Grid>
         <Grid item sm={12}>
