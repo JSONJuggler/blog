@@ -11,6 +11,7 @@ import {
   faLinkedin,
   faInstagram,
   faTwitch,
+  faFacebook,
 } from '@fortawesome/free-brands-svg-icons';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -177,6 +178,10 @@ export const SvgInstagram = (props) => {
 
 export const SvgTwitch = (props) => {
   return <FontAwesomeIcon icon={faTwitch} {...props} />;
+};
+
+export const SvgFacebook = (props) => {
+  return <FontAwesomeIcon icon={faFacebook} {...props} />;
 };
 
 export const SvgDownArrow = (props) => {
