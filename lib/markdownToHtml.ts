@@ -1,7 +1,13 @@
 import remark from 'remark';
 import html from 'remark-html';
+import highlight from 'remark-highlight.js';
+import gfm from 'remark-gfm';
 
-export default async function markdownToHtml(markdown: string) {
-  const result = await remark().use(html).process(markdown);
+export default async function markdownToHtml(markdown: string): Promise<string> {
+  const result = await remark()
+    .use(highlight)
+    .use(gfm)
+    .use(html)
+    .process('<link rel="stylesheet" type="text/css" href="/css/markdown-styles.css" />' + markdown);
   return result.toString();
 }
