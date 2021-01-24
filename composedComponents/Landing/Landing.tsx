@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 
 import HeroStory from './HeroStory';
-import MoreStories from './MoreStories';
+import MoreStories from '../../components/MoreStories';
 import Post from '../../types/post';
 
 type LandingProps = {
