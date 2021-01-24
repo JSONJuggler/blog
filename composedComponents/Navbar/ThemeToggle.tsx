@@ -3,34 +3,25 @@ import { withStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import Grid from '@material-ui/core/Grid';
 import Switch from '@material-ui/core/Switch';
+import useDarkMode from 'use-dark-mode';
 
-type ThemeToggleProps = {
-  setIsDark: (isDark: boolean) => void;
-};
+const ThemeToggle: React.FC = () => {
+  const darkMode = useDarkMode(true);
 
-const ThemeToggle: React.FC<ThemeToggleProps> = ({ setIsDark }) => {
   const [state, setState] = useState(() => {
     if (process.browser) {
-      const themePreference = localStorage.getItem('themePreference');
-      if (themePreference === 'light') {
-        return true;
-      }
-      if (themePreference === 'dark') {
+      if (darkMode.value) {
         return false;
+      }
+      if (!darkMode.value) {
+        return true;
       }
     }
   });
 
   const handleChange = (e: ChangeEvent<HTMLFormElement | HTMLInputElement>) => {
     setState(e.target.checked);
-    if (!e.target.checked) {
-      setIsDark(true);
-      localStorage.setItem('themePreference', 'dark');
-    }
-    if (e.target.checked) {
-      localStorage.setItem('themePreference', 'light');
-      setIsDark(false);
-    }
+    darkMode.toggle();
   };
 
   return (

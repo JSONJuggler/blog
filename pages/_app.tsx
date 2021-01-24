@@ -4,6 +4,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
 import { Container } from '@material-ui/core';
+import useDarkMode from 'use-dark-mode';
 
 import Navbar from '../composedComponents/Navbar';
 import Footer from '../composedComponents/Footer';
@@ -11,9 +12,18 @@ import { lightTheme, darkTheme } from '../theme';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const classes = useStyles();
+  const darkMode = useDarkMode(true);
 
-  const [theme, setTheme] = React.useState<Theme>(darkTheme);
-  const [isDark, setIsDark] = React.useState(true);
+  const [theme, setTheme] = React.useState<Theme>(() => {
+    if (process.browser) {
+      if (darkMode.value) {
+        return darkTheme;
+      }
+      if (!darkMode.value) {
+        return lightTheme;
+      }
+    }
+  });
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -24,21 +34,12 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   }, []);
 
   React.useEffect(() => {
-    const themePreference = localStorage.getItem('themePreference');
-
-    if (themePreference === 'light') {
-      setIsDark(false);
-    }
-    if (themePreference === 'dark') {
-      setIsDark(true);
-    }
-
-    if (isDark) {
+    if (darkMode.value) {
       setTheme(darkTheme);
     } else {
       setTheme(lightTheme);
     }
-  }, [isDark]);
+  }, [darkMode.value]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -68,9 +69,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         </Head>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Navbar setIsDark={setIsDark} />
+        <Navbar />
         <Container className={classes.container} maxWidth="lg" disableGutters={true} component="main">
-          <Component {...pageProps} isDark={isDark} />
+          <Component {...pageProps} />
         </Container>
         <Footer />
       </div>

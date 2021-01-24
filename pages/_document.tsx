@@ -3,31 +3,19 @@ import { ServerStyleSheets } from '@material-ui/core/styles';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
 
-import { lightTheme, darkTheme } from '../theme';
+import { darkTheme } from '../theme';
 
 export default class MyDocument extends Document {
   render(): JSX.Element {
-    let theme;
-    if (process.browser) {
-      const themePreference = localStorage.getItem('theme');
-
-      if (themePreference === 'light') {
-        theme = lightTheme;
-      } else {
-        theme = darkTheme;
-      }
-    } else {
-      theme = darkTheme;
-    }
-
     return (
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <meta name="theme-color" content={theme.palette.primary.main} />
+          <meta name="theme-color" content={darkTheme.palette.primary.main} />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         </Head>
         <body>
+          <script src="noflash.js" />
           <Main />
           <NextScript />
         </body>

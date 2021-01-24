@@ -8,11 +8,7 @@ import { Container, Grid } from '@material-ui/core';
 import ThemeToggle from './ThemeToggle';
 import Header from './Header';
 
-type NavBarProps = {
-  setIsDark: (isDark: boolean) => void;
-};
-
-const Navbar: React.FC<NavBarProps> = ({ setIsDark }) => {
+const Navbar: React.FC = () => {
   const classes = useStyles();
   const { asPath, route } = useRouter();
   const [isLandingPage, setIsLandingPage] = useState(() => {
@@ -38,7 +34,7 @@ const Navbar: React.FC<NavBarProps> = ({ setIsDark }) => {
           <Grid container>
             <Grid item xs={true}></Grid>
             <Grid item>
-              <ThemeToggle setIsDark={setIsDark} />
+              <ThemeToggle />
             </Grid>
             <Grid item xs={12}></Grid>
             <Grid container item justify="center">
