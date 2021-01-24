@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import Grid from '@material-ui/core/Grid';
 import Switch from '@material-ui/core/Switch';
-import Typography from '@material-ui/core/Typography';
 
 type ThemeToggleProps = {
   setIsDark: (isDark: boolean) => void;
@@ -38,13 +37,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ setIsDark }) => {
     <FormGroup>
       <Grid component="label" container alignItems="center" spacing={1}>
         <Grid item>
-          <Typography variant="h6">dark</Typography>
-        </Grid>
-        <Grid item>
           <StyledSwitch checked={state} onChange={handleChange} name="checked" />
-        </Grid>
-        <Grid item>
-          <Typography variant="h6">light</Typography>
         </Grid>
       </Grid>
     </FormGroup>
