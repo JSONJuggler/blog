@@ -69,7 +69,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         </Head>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Navbar />
+        <Navbar toggleDarkMode={darkMode.toggle} isDarkMode={darkMode.value} />
         <Container className={classes.container} maxWidth="lg" disableGutters={true} component="main">
           <Component {...pageProps} />
         </Container>

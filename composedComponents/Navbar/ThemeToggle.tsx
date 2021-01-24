@@ -1,34 +1,19 @@
-import { ChangeEvent, useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import Grid from '@material-ui/core/Grid';
 import Switch from '@material-ui/core/Switch';
-import useDarkMode from 'use-dark-mode';
 
-const ThemeToggle: React.FC = () => {
-  const darkMode = useDarkMode(true);
+type ThemeToggleProps = {
+  toggleDarkMode: () => void;
+  isDarkMode: boolean;
+};
 
-  const [state, setState] = useState(() => {
-    if (process.browser) {
-      if (darkMode.value) {
-        return false;
-      }
-      if (!darkMode.value) {
-        return true;
-      }
-    }
-  });
-
-  const handleChange = (e: ChangeEvent<HTMLFormElement | HTMLInputElement>) => {
-    setState(e.target.checked);
-    darkMode.toggle();
-  };
-
+const ThemeToggle: React.FC<ThemeToggleProps> = ({ toggleDarkMode, isDarkMode }) => {
   return (
     <FormGroup>
       <Grid component="label" container alignItems="center" spacing={1}>
         <Grid item>
-          <StyledSwitch checked={state} onChange={handleChange} name="checked" />
+          <StyledSwitch checked={!isDarkMode} onChange={toggleDarkMode} name="checked" />
         </Grid>
       </Grid>
     </FormGroup>
