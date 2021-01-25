@@ -36,16 +36,12 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }) => {
     <AppBar className={classes.appBar} color="transparent" elevation={isLandingPage ? 0 : 6} position="static">
       <Container component="nav" maxWidth="lg" disableGutters={true}>
         <Toolbar>
-          <Grid container>
-            <Grid item xs={true}></Grid>
-            <Grid item>
-              <ThemeToggle toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+          <Grid container alignItems="center">
+            <Grid item xs={true}>
+              <Header isLandingPage={isLandingPage} />
             </Grid>
-            <Grid item xs={12}></Grid>
-            <Grid container item justify="center">
-              <Grid item xs={true}>
-                <Header isLandingPage={isLandingPage} />
-              </Grid>
+            <Grid item>
+              <ThemeToggle toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} isLandingPage={isLandingPage} />
             </Grid>
           </Grid>
         </Toolbar>
