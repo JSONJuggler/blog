@@ -51,7 +51,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
           <title>blog | beau reescano </title>
           <meta name="description" content={description} />
-          <meta prefix="og: http://ogp.me/ns#" property="og:image" content="/assets/blog/blog.png" />
+          <meta prefix="og: http://ogp.me/ns#" property="og:image" content="/assets/imgs/blog.png" />
 
           <meta name="author" content="Beau Reescano" />
           <meta prefix="og: http://ogp.me/ns#" property="og:title" content="beau's blog" />
