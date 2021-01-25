@@ -13,6 +13,7 @@ import { lightTheme, darkTheme } from '../theme';
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const classes = useStyles();
   const darkMode = useDarkMode(true);
+  const description = "Hi, I'm a Full Stack React and ReactNative developer and welcome to my blog!";
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -26,7 +27,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     <ThemeProvider theme={darkMode.value ? darkTheme : lightTheme}>
       <div className={classes.root}>
         <Head>
-          <meta name="author" content="Beau Reescano" />
+          {/* <meta name="author" content="Beau Reescano" />
           <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta prefix="og: http://ogp.me/ns#" property="og:title" content="Beau Reescano's Blog" />
@@ -44,6 +45,22 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
           <meta prefix="og: http://ogp.me/ns#" property="og:site_name" content="webdeveloperbeau.com/blog" />
           <meta prefix="og: http://ogp.me/ns#" property="og:image:width" content="2086" />
           <meta prefix="og: http://ogp.me/ns#" property="og:image:height" content="1538" />
+          <meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:creator" content="JSONJuggler" /> */}
+
+          <title>blog | beau reescano </title>
+          <meta name="description" content={description} />
+          <meta prefix="og: http://ogp.me/ns#" property="og:image" content="/assets/blog/blog.png" />
+
+          <meta name="author" content="Beau Reescano" />
+          <meta prefix="og: http://ogp.me/ns#" property="og:title" content="beau's blog" />
+          <meta prefix="og: http://ogp.me/ns#" property="og:description" content={description} />
+          <meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://blog.webdeveloperbeau.com/" />
+
+          <meta prefix="og: http://ogp.me/ns#" property="og:site_name" content="https://blog.webdeveloperbeau.com/" />
+          <meta prefix="og: http://ogp.me/ns#" property="og:image:width" content="1920" />
+          <meta prefix="og: http://ogp.me/ns#" property="og:image:height" content="960" />
           <meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:creator" content="JSONJuggler" />
