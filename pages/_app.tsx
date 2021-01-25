@@ -1,5 +1,5 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider, makeStyles, Theme } from '@material-ui/core/styles';
+import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
@@ -14,17 +14,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const classes = useStyles();
   const darkMode = useDarkMode(true);
 
-  const [theme, setTheme] = React.useState<Theme>(() => {
-    if (process.browser) {
-      if (darkMode.value) {
-        return darkTheme;
-      }
-      if (!darkMode.value) {
-        return lightTheme;
-      }
-    }
-  });
-
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
@@ -33,16 +22,8 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     }
   }, []);
 
-  React.useEffect(() => {
-    if (darkMode.value) {
-      setTheme(darkTheme);
-    } else {
-      setTheme(lightTheme);
-    }
-  }, [darkMode.value]);
-
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkMode.value ? darkTheme : lightTheme}>
       <div className={classes.root}>
         <Head>
           <meta name="author" content="Beau Reescano" />
