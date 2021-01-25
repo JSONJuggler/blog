@@ -13,7 +13,7 @@ import {
   faTwitch,
   faFacebook,
 } from '@fortawesome/free-brands-svg-icons';
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 export const SvgStrapi = (props) => {
   return (
@@ -186,4 +186,12 @@ export const SvgFacebook = (props) => {
 
 export const SvgDownArrow = (props) => {
   return <FontAwesomeIcon icon={faArrowDown} {...props} />;
+};
+
+export const SvgSun = (props) => {
+  return <FontAwesomeIcon icon={faSun} {...props} />;
+};
+
+export const SvgMoon = (props) => {
+  return <FontAwesomeIcon icon={faMoon} {...props} />;
 };
