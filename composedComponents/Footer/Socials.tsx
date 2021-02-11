@@ -29,37 +29,37 @@ const renderSocials = () => {
   const socials = [
     {
       link: 'https://www.linkedin.com/in/beau-reescano/',
-      toolTipLabel: 'My LinkedIn',
+      toolTipLabel: 'LinkedIn',
       ariaLabel: "beau's linkedin",
       icon: getIcon('SvgLinkedIn'),
     },
     {
       link: 'https://github.com/jsonjuggler',
-      toolTipLabel: 'My Github',
+      toolTipLabel: 'Github',
       ariaLabel: "beau's github",
       icon: getIcon('SvgGithub'),
     },
     {
       link: 'https://twitter.com/JSONJuggler',
-      toolTipLabel: 'My Twitter',
+      toolTipLabel: 'Twitter',
       ariaLabel: "beau's twitter",
       icon: getIcon('SvgTwitter'),
     },
     {
       link: 'https://www.instagram.com/beaureescano/',
-      toolTipLabel: 'My Instagram',
+      toolTipLabel: 'Instagram',
       ariaLabel: "beau's instagram",
       icon: getIcon('SvgInstagram'),
     },
     {
       link: 'https://www.twitch.tv/drees1992',
-      toolTipLabel: 'My Twitch',
+      toolTipLabel: 'Twitch',
       ariaLabel: "beau's twitch",
       icon: getIcon('SvgTwitch'),
     },
     {
       link: 'https://www.youtube.com/channel/UCynL77MXCa27fwYCsDDmKSw',
-      toolTipLabel: 'My Youtube',
+      toolTipLabel: 'Youtube',
       ariaLabel: "beau's youtube",
       icon: getIcon('SvgYoutube'),
     },

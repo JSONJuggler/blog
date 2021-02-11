@@ -12,8 +12,13 @@ const Footer: React.FC = () => {
       <Grid container className={classes.footer} alignContent="center" component="footer">
         <Container maxWidth="lg" disableGutters>
           <Grid container item className={classes.footerItemParent} component="footer">
-            <Grid className={classes.footerItem} item xs={12} sm={4}>
-              <Typography variant="h6">{"Beau's Blog"}</Typography>
+            <Grid className={classes.footerItem} container item xs={12} sm={4}>
+              <Grid xs={12} item>
+                <Typography variant="h6">{"Beau's Blog"}</Typography>
+              </Grid>
+              <Grid className={classes.copyright} item>
+                <Copyright />
+              </Grid>
             </Grid>
             <Grid className={classes.footerItem} container item alignContent="flex-start" xs={12} sm={4}>
               <Grid item xs={12}>
@@ -38,9 +43,6 @@ const Footer: React.FC = () => {
               </Grid>
               <Socials />
             </Grid>
-            <Grid item xs={12}>
-              <Copyright />
-            </Grid>
           </Grid>
         </Container>
       </Grid>
@@ -49,6 +51,11 @@ const Footer: React.FC = () => {
 };
 
 const useStyles = makeStyles((theme) => ({
+  copyright: {
+    [theme.breakpoints.up('sm')]: {
+      marginTop: 'auto',
+    },
+  },
   footer: {
     paddingTop: theme.spacing(10),
     background: theme.palette.type === 'dark' ? theme.palette.secondary.dark : theme.palette.secondary.light,
