@@ -17,13 +17,16 @@ type PostHeaderProps = {
 
 const PostHeader: React.FC<PostHeaderProps> = ({ title, coverImage, date, author, timeToRead, slug }) => {
   const classes = useStyles();
+  const isProd = process.env.NODE_ENV === 'production';
 
   return (
     <>
       <Typography className={classes.title} variant="h1" component="h1" paragraph>
         {title}
       </Typography>
-      <div className={classes.coverImage}>{coverImage && <CoverImage title={title} src={coverImage} />}</div>
+      <div className={classes.coverImage}>
+        {coverImage && <CoverImage title={title} src={isProd ? '/blog' + coverImage : coverImage} />}
+      </div>
       <Container className={classes.avatar} maxWidth="sm" disableGutters>
         <Grid container>
           <Grid item xs={5}>

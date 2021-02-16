@@ -11,12 +11,21 @@ type AvatarProps = {
 
 const Avatar: React.FC<AvatarProps> = ({ name, picture, dateString, timeToRead }) => {
   const classes = useStyles();
+  const isProd = process.env.NODE_ENV === 'production';
 
   return (
     <div className={classes.root}>
       {dateString && timeToRead && (
         <>
-          {picture && <Image className={classes.image} src={picture} height={50} width={50} alt={name} />}
+          {picture && (
+            <Image
+              className={classes.image}
+              src={isProd ? '/blog' + picture : picture}
+              height={50}
+              width={50}
+              alt={name}
+            />
+          )}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <Typography className={classes.name} variant="body2">
               {name}

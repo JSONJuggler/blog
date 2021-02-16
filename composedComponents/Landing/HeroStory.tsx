@@ -18,13 +18,14 @@ type HeroStoryProps = {
 
 const HeroStory: React.FC<HeroStoryProps> = ({ title, coverImage, date, excerpt, author, slug }) => {
   const classes = useStyles();
+  const isProd = process.env.NODE_ENV === 'production';
 
   return (
     <>
       <Grid container spacing={4}>
         {coverImage && (
           <Grid item xs={12}>
-            <CoverImage title={title} src={coverImage} slug={slug} />
+            <CoverImage title={title} src={isProd ? '/blog' + coverImage : coverImage} slug={slug} />
           </Grid>
         )}
         <Grid item sm={12}>

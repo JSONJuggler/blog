@@ -7,10 +7,16 @@ type MetaProps = {
 };
 
 const Meta: React.FC<MetaProps> = ({ post }) => {
+  const isProd = process.env.NODE_ENV === 'production';
+
   return (
     <Head>
       <title>{post.title.toLocaleLowerCase()} | blog | beau reescano</title>
-      <meta prefix="og: http://ogp.me/ns#" property="og:image" content={post.ogImage.url} />
+      <meta
+        prefix="og: http://ogp.me/ns#"
+        property="og:image"
+        content={isProd ? 'blog' + post.ogImage.url : post.ogImage.url}
+      />
       <meta
         name="description"
         content="I'm a Full Stack web developer using the latest front-end and back-end
