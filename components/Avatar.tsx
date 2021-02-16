@@ -40,7 +40,15 @@ const Avatar: React.FC<AvatarProps> = ({ name, picture, dateString, timeToRead }
       )}
       {!dateString && (
         <>
-          {picture && <Image className={classes.image} src={picture} height={50} width={50} alt={name} />}
+          {picture && (
+            <Image
+              className={classes.image}
+              src={isProd ? '/blog' + picture : picture}
+              height={50}
+              width={50}
+              alt={name}
+            />
+          )}
           <Typography className={classes.name} variant="body2">
             {name}
           </Typography>
