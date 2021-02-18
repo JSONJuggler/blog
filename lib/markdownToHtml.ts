@@ -8,6 +8,6 @@ export default async function markdownToHtml(markdown: string): Promise<string> 
     .use(highlight)
     .use(gfm)
     .use(html)
-    .process('<link rel="stylesheet" type="text/css" href="/css/markdown-styles.css" />' + markdown);
+    .process('<link rel="stylesheet" type="text/css" href="/blog/css/markdown-styles.css" />' + markdown);
   return result.toString();
 }
